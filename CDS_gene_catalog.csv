@@ -1,0 +1,54 @@
+gene,protein,family,direction,localization,doi_direction,doi_localization,confidence,category,note
+SLC12A2,NKCC1,SLC12 cotransporter,influx,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,high,include,Na-K-2Cl cotransporter; mediates Cl- influx; widely expressed
+SLC12A1,NKCC2,SLC12 cotransporter,influx,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,medium,include,Na-K-2Cl cotransporter; kidney-specific
+SLC12A5,KCC2,SLC12 cotransporter,efflux,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,high,include,K-Cl cotransporter; neuron-specific Cl- efflux
+SLC12A4,KCC1,SLC12 cotransporter,efflux,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,high,include,K-Cl cotransporter; widely expressed Cl- efflux
+SLC12A6,KCC3,SLC12 cotransporter,efflux,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,medium,include,K-Cl cotransporter; Cl- efflux
+SLC12A7,KCC4,SLC12 cotransporter,efflux,plasma_membrane,10.1152/physrev.00025.2014,10.1152/physrev.00025.2014,medium,include,K-Cl cotransporter; widely expressed Cl- efflux
+CLCN1,ClC-1,CLCN voltage-gated,efflux,plasma_membrane,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,medium,include,Voltage-gated Cl- channel; mainly skeletal muscle
+CLCN2,ClC-2,CLCN voltage-gated,efflux,plasma_membrane,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,high,include,Voltage-gated Cl- channel; widely expressed Cl- efflux
+CLCNKA,ClC-Ka,CLCN voltage-gated,efflux,plasma_membrane,10.1038/nature03824,10.1038/nature03824,medium,include,Voltage-gated Cl- channel; requires Barttin beta subunit for membrane localization
+CLCNKB,ClC-Kb,CLCN voltage-gated,efflux,plasma_membrane,10.1038/nature03824,10.1038/nature03824,medium,include,Voltage-gated Cl- channel; requires Barttin beta subunit for membrane localization
+ANO1,TMEM16A,ANO/TMEM16 Ca2+-activated,efflux,plasma_membrane,10.1038/nature07313,10.1038/nature07313,high,include,Ca2+-activated Cl- channel; plasma membrane; strong Cl- efflux evidence
+ANO2,TMEM16B,ANO/TMEM16 Ca2+-activated,efflux,plasma_membrane,10.1038/nature07313,10.1038/nature07313,medium,include,Ca2+-activated Cl- channel; plasma membrane
+BEST1,Bestrophin-1,Bestrophin Ca2+-activated,efflux,plasma_membrane,10.1152/physrev.00024.2013,10.1152/physrev.00024.2013,medium,include,Ca2+-activated Cl- channel; activity depends on intracellular Ca2+ signal
+BEST2,Bestrophin-2,Bestrophin Ca2+-activated,efflux,plasma_membrane,10.1152/physrev.00024.2013,10.1152/physrev.00024.2013,medium,include,Ca2+-activated Cl- channel
+BEST3,Bestrophin-3,Bestrophin Ca2+-activated,efflux,plasma_membrane,10.1152/physrev.00024.2013,10.1152/physrev.00024.2013,low,include,Ca2+-activated Cl- channel; tissue expression less characterized than BEST1
+BEST4,Bestrophin-4,Bestrophin Ca2+-activated,efflux,plasma_membrane,10.1152/physrev.00024.2013,10.1152/physrev.00024.2013,low,include,Ca2+-activated Cl- channel
+CFTR,CFTR,CFTR/cAMP-activated,efflux,plasma_membrane,10.1152/physrev.1999.79.1.S23,10.1152/physrev.1999.79.1.S23,high,include,cAMP-activated Cl- channel; key epithelial Cl- efflux channel
+LRRC8A,SWELL1,LRRC8/VRAC,bidirectional_efflux,plasma_membrane,10.1126/science.1249538,10.1126/science.1249538,high,include,Volume-regulated anion channel (VRAC); bidirectional but net Cl- efflux during cell swelling
+LRRC8B,,LRRC8/VRAC,bidirectional_efflux,plasma_membrane,10.1126/science.1249538,10.1126/science.1249538,medium,include,VRAC subunit; heteromerizes with LRRC8A
+LRRC8C,,LRRC8/VRAC,bidirectional_efflux,plasma_membrane,10.1126/science.1249538,10.1126/science.1249538,medium,include,VRAC subunit; heteromerizes with LRRC8A
+LRRC8D,,LRRC8/VRAC,bidirectional_efflux,plasma_membrane,10.1126/science.1249538,10.1126/science.1249538,medium,include,VRAC subunit; heteromerizes with LRRC8A
+LRRC8E,,LRRC8/VRAC,bidirectional_efflux,plasma_membrane,10.1126/science.1249538,10.1126/science.1249538,medium,include,VRAC subunit; heteromerizes with LRRC8A
+BSND,Barttin,BSND/beta-subunit,efflux,plasma_membrane,10.1038/nature03824,10.1038/nature03824,high,include,Eesential beta subunit for ClC-Ka/Kb plasma membrane localization; does not form channel alone
+SLC26A6,PAT1,SLC26 anion exchanger,bidirectional,plasma_membrane,10.1146/annurev-physiol-021113-170246,10.1146/annurev-physiol-021113-170246,medium,controversial,Cl-/HCO3-/oxalate exchanger; direction depends on transmembrane gradient
+SLC26A9,,SLC26 anion exchanger,efflux_leaning,plasma_membrane,10.1152/physrev.00047.2012,10.1152/physrev.00047.2012,medium,controversial,Cl- channel and exchanger activities; functional evidence leans toward Cl- efflux
+TTYH1,Tweety-1,TTYH/Ca2+-activated,controversial,plasma_membrane,10.1038/s41467-019-10852-x,10.1038/s41467-019-10852-x,low,controversial,Originally identified as CaCC; structural studies question chloride channel identity
+TTYH2,Tweety-2,TTYH/Ca2+-activated,controversial,plasma_membrane,10.1038/s41467-019-10852-x,10.1038/s41467-019-10852-x,low,controversial,See TTYH1
+TTYH3,Tweety-3,TTYH/Ca2+-activated,controversial,plasma_membrane,10.1038/s41467-019-10852-x,10.1038/s41467-019-10852-x,low,controversial,See TTYH1
+CLCA1,CLCA1,CLCA/secreted-protein,controversial,secreted,10.1152/physrev.00047.2012,10.1152/physrev.00047.2012,low,controversial,Originally classified as CaCC; recent evidence suggests secreted protein rather than channel-forming
+CLCA2,CLCA2,CLCA/secreted-protein,controversial,secreted,10.1152/physrev.00047.2012,10.1152/physrev.00047.2012,low,controversial,See CLCA1
+CLCA4,CLCA4,CLCA/secreted-protein,controversial,secreted,10.1152/physrev.00047.2012,10.1152/physrev.00047.2012,low,controversial,See CLCA1
+GABRA1-6,GABA-A alpha,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene not universal Cl- transporter
+GABRB1-3,GABA-A beta,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene not universal Cl- transporter
+GABRD,GABA-A delta,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor delta subunit: PRIMARY TARGET of CDS analysis; circular logic if included
+GABRE,GABA-A epsilon,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene
+GABRG1-3,GABA-A gamma,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene
+GABRP,GABA-A pi,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene
+GABRQ,GABA-A theta,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor subunit: target gene
+GABRR1-3,GABA-A rho,GABA-A receptor,NA,plasma_membrane,NA,NA,NA,excluded,GABA-A receptor (formerly GABAC) subunit: target gene
+GLRA1-4,GlyR alpha,Glycine receptor,NA,plasma_membrane,NA,NA,NA,excluded,Glycine receptor subunit: target gene not universal Cl- transporter
+GLRB,GlyR beta,Glycine receptor,NA,plasma_membrane,NA,NA,NA,excluded,Glycine receptor beta subunit: target gene
+CLCN3,ClC-3,CLCN intracellular,intracellular,intracellular,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,NA,excluded,Intracellular endosomal/lysosomal Cl-/H+ exchanger; not plasma membrane
+CLCN4,ClC-4,CLCN intracellular,intracellular,intracellular,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,NA,excluded,Intracellular Cl-/H+ exchanger; not plasma membrane
+CLCN5,ClC-5,CLCN intracellular,intracellular,intracellular,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,NA,excluded,Intracellular endosomal Cl-/H+ exchanger; Dent disease gene
+CLCN6,ClC-6,CLCN intracellular,intracellular,intracellular,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,NA,excluded,Intracellular late endosomal Cl-/H+ exchanger
+CLCN7,ClC-7,CLCN intracellular,intracellular,intracellular,10.1152/physrev.00047.2009,10.1152/physrev.00047.2009,NA,excluded,Intracellular lysosomal Cl-/H+ exchanger; Osteopetrosis gene
+CLIC1,CLIC1,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,Intracellular chloride intracellular channel; mainly organellar (mitochondria/nuclear membrane)
+CLIC2,CLIC2,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,See CLIC1
+CLIC3,CLIC3,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,See CLIC1
+CLIC4,CLIC4,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,See CLIC1
+CLIC5,CLIC5,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,See CLIC1
+CLIC6,CLIC6,CLIC intracellular,intracellular,intracellular,NA,NA,NA,excluded,See CLIC1
+SLC26A3,DRA,SLC26 anion exchanger,influx_leaning,plasma_membrane,10.1146/annurev-physiol-021113-170246,10.1146/annurev-physiol-021113-170246,NA,excluded,Cl-/HCO3- exchanger; in intestinal epithelium mediates Cl- UPTAKE; direction highly tissue-dependent; unreliable in CRC context

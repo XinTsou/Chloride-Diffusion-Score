@@ -1,0 +1,28 @@
+# R data files
+*.RData
+*.rds
+*.Rhistory
+.RData
+.Rhistory
+
+# Raw sequencing data
+*.tar.gz
+*.fastq
+*.fq
+*.bam
+*.bai
+
+# Output figures
+*.pdf
+*.png
+*.tiff
+*.jpg
+
+# R session files
+.Rproj.user/
+*.Rproj
+.Renviron
+
+# OS files
+.DS_Store
+Thumbs.db
