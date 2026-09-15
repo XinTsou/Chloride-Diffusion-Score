@@ -23,6 +23,9 @@
 *.Rproj
 .Renviron
 
+# Demo output
+demo/output/
+
 # OS files
 .DS_Store
 Thumbs.db

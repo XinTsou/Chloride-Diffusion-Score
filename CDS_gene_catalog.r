@@ -300,4 +300,4 @@ filter_genes_by_scrna <- function(
 # source("CDS_v2_improved.r")
 # filtered <- filter_genes_by_scrna(scrna_obj, cell_type_column = "cell_type")
 # my_genes <- list(influx = filtered$influx_genes, efflux = filtered$efflux_genes)
-# spatial_obj <- calculate_cds(spatial_obj, custom_genes = my_genes, sigma = 5)
+# spatial_obj <- calculate_cds(spatial_obj, custom_genes = my_genes, sigma = 1.0)

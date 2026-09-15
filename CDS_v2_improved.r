@@ -49,7 +49,9 @@ library(Matrix)
 #'                           来自 filter_genes_by_scrna() 的输出。必需参数。
 #' @param assay              使用哪个 Assay。默认自动检测：SCT > Spatial > DefaultAssay
 #' @param layer              表达量数据层，默认 "data"（归一化值）
-#' @param sigma              高斯扩散核带宽（默认 5）
+#' @param sigma              高斯扩散核带宽，单位是**中位最近邻点距的倍数**（默认 1.0，
+#'                           Visium 上约合 100 µm）。σ 小于 1/3 点距时核在截断后只剩
+#'                           自身权重，CDS 退化为 S_raw，此时发出 warning。
 #' @param use_adaptive_sigma 是否启用基于 ECM 的自适应扩散半径（实验性功能，默认 FALSE）
 #' @param ecm_genes          ECM 参考基因向量（仅在 use_adaptive_sigma = TRUE 时使用）
 #' @param min_valid_genes    每侧最少需要的有效基因数，低于此值发出 warning
@@ -62,7 +64,7 @@ calculate_cds <- function(
     custom_genes,                        # REQUIRED — from filter_genes_by_scrna()
     assay              = NULL,
     layer              = "data",
-    sigma              = 5,
+    sigma              = 1.0,
     use_adaptive_sigma = FALSE,
     ecm_genes          = c("COL1A1", "COL1A2", "COL3A1", "FN1"),
     min_valid_genes    = 1L
@@ -186,29 +188,43 @@ calculate_cds <- function(
   dist_mat <- as.matrix(dist(coords[, 1:2]))
   n_spots  <- nrow(dist_mat)
 
+  # sigma 以点距为单位，换算成坐标单位；不同平台/样本的点距不同，这一步保证
+  # 同一个 sigma 在所有数据上对应同一个物理半径
+  d_nn    <- apply(dist_mat, 1, function(v) min(v[v > 0]))
+  pitch_u <- median(d_nn)
+  sigma_u <- sigma * pitch_u
+
+  # 核在 3 sigma 处截断，sigma < 1/3 点距时每个 spot 只剩自身权重，CDS ≡ S_raw
+  if (sigma_u < pitch_u / 3) {
+    warning(sprintf(paste0("[CDS] sigma = %.3f 点距 = %.2f 坐标单位，小于 1/3 点距；",
+                           "截断后核退化为单位阵，CDS 将等同于 S_raw。"),
+                    sigma, sigma_u))
+  }
+
   # 自适应扩散（实验性）
   if (use_adaptive_sigma) {
     message("[CDS] 启用实验性自适应扩散半径")
     ecm_valid <- intersect(ecm_genes, rownames(exp_data))
     if (length(ecm_valid) == 0) {
       warning("[CDS] 未找到 ECM 参考基因，回退到恒定 sigma。")
-      adaptive_sigma_vec <- rep(sigma, n_spots)
+      adaptive_sigma_vec <- rep(sigma_u, n_spots)
     } else {
       ecm_signal <- colMeans(exp_data[ecm_valid, , drop = FALSE])
       ecm_range  <- max(ecm_signal) - min(ecm_signal)
       if (ecm_range < .Machine$double.eps) {
-        adaptive_sigma_vec <- rep(sigma, n_spots)
+        adaptive_sigma_vec <- rep(sigma_u, n_spots)
       } else {
         ecm_norm <- (ecm_signal - min(ecm_signal)) / ecm_range
-        adaptive_sigma_vec <- sigma * (1 - 0.5 * ecm_norm)
+        adaptive_sigma_vec <- sigma_u * (1 - 0.5 * ecm_norm)
       }
     }
   } else {
-    adaptive_sigma_vec <- rep(sigma, n_spots)
+    adaptive_sigma_vec <- rep(sigma_u, n_spots)
   }
 
   # 执行高斯卷积
-  message(sprintf("[CDS] 执行空间卷积 (n = %d, sigma = %.1f)...", n_spots, sigma))
+  message(sprintf("[CDS] 执行空间卷积 (n = %d, sigma = %.2f 点距 = %.1f 坐标单位, 点距 = %.1f)...",
+                  n_spots, sigma, sigma_u, pitch_u))
   cds_vector      <- numeric(n_spots)
   trunc_threshold <- exp(-3^2 / 2)   # > 3 sigma 截断，误差 < 1%
 
@@ -231,7 +247,9 @@ calculate_cds <- function(
   seurat_obj@misc$CDS_params <- list(
     assay            = assay,
     layer            = layer,
-    sigma            = sigma,
+    sigma            = sigma,          # 点距倍数
+    sigma_units      = sigma_u,        # 坐标单位
+    pitch_units      = pitch_u,        # 中位最近邻点距（坐标单位）
     adaptive_sigma   = use_adaptive_sigma,
     valid_influx     = valid_influx,
     valid_efflux     = valid_efflux,
@@ -547,7 +565,7 @@ plot_cds_scatter <- function(seurat_obj, target_gene,
 # my_genes <- list(influx = filtered$influx_genes, efflux = filtered$efflux_genes)
 #
 # # Step 2: 在空间数据上计算 CDS
-# spatial_obj <- calculate_cds(spatial_obj, custom_genes = my_genes, sigma = 5)
+# spatial_obj <- calculate_cds(spatial_obj, custom_genes = my_genes, sigma = 1.0)
 # cds_diagnose(spatial_obj)
 # plot_cds(spatial_obj, mode = "zscore")
 
